@@ -50,6 +50,7 @@
 #!/bin/bash
 
 note- enter your path which you want to run after boot
+
 ex- python3 /DEsktop/atul/iot/developer/run.py
 
 exit 0

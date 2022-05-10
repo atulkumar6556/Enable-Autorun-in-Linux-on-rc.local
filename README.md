@@ -18,23 +18,56 @@
 
 -------------------------------------------------------
 
-    [Unit]
+    # /etc/systemd/system/rc-local.service
+    #  SPDX-License-Identifier: LGPL-2.1+
+    #
+    #  This file is part of systemd.
+    #
+    #  systemd is free software; you can redistribute it and/or modify it
+    #  under the terms of the GNU Lesser General Public License as published by
+    #  the Free Software Foundation; either version 2.1 of the License, or
+    #  (at your option) any later version.
 
-    Description=/etc/rc.local Compatibility
-    ConditionPathExists-/etc/rc.local
+    # This unit gets pulled automatically into multi-user.target by
+    # systemd-rc-local-generator if /etc/rc.local is executable.
 
-    [Service]
+     [Unit]
+     Description=/etc/rc.local Compatibility
+     Documentation=man:systemd-rc-local-generator(8)
+     ConditionFileIsExecutable=/etc/rc.local
+     After=network.target
 
-    Type=forking
-    ExecStart=/etc/rc.local start
-    TimeoutSec=0
-    StandardOutput=tty
-    RemainAfterExit=yes
-    SysVStartPriority=99
+     [Service]
 
-    [Install]
+     Type=forking
+     ExecStart=/etc/rc.local start
+     TimeoutSec=0
+     StandardOutput=tty
+     RemainAfterExit=yes
+     SysVStartPriority=99
+     GuessMainPID=no
 
-    WantedBy=multi-user.target 
+     # /usr/lib/systemd/system/rc-local.service.d/debian.conf
+
+
+
+     [Unit]
+     # not specified by LSB, but has been behaving that way in Debian under SysV
+     # init and upstart
+     After=network-online.target
+
+     # Often contains status messages which users expect to see on the console
+     # during boot
+     [Service]
+     StandardOutput=journal+console
+     StandardError=journal+console
+
+
+
+     [Install]
+
+     WantedBy=multi-user.target
+
 
 -----------------------------------------------------
 

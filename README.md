@@ -6,10 +6,20 @@
 ## (1)
 
      sudo systemctl status rc-local
+     
+     
+<p align="center">
+  <img src="https://drive.google.com/uc?export=download&id=120SPTGtxmYZcXuZFIiXuWAFgWlrP_haC" width="950" alt="STEP1">
+</p>
+
 
 ## (2)
 
      sudo systemctl enable rc-local
+     
+<p align="center">
+  <img src="https://drive.google.com/uc?export=download&id=14toESL-d7xvrwxprvmHRGIfylYVSRS4L" width="950" alt="STEP2">
+</p>
 
 ## (3)
      sudo nano /etc/systemd/system/rc-local.service
@@ -69,6 +79,11 @@
      WantedBy=multi-user.target
 
 
+<p align="center">
+  <img src="https://drive.google.com/uc?export=download&id=1zd830_qh5TBZoMeQIppRucfaLldOfcQ0" width="950" alt="STEP3">
+</p>
+
+
 -----------------------------------------------------
 
 ## (4)
@@ -88,6 +103,11 @@
 
      exit 0
 
+
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=download&id=1311NDxcE2ghHER3CD9cKVB_8DcxyglLp" width="950" alt="STEP1">
+</p>
 --------------------------------------------------
 
 ## (5)
@@ -101,7 +121,7 @@
 
 
 After successful creation 
-[Output]
+[Output] will look like -----
 
 ==================================================================================================================
 
@@ -109,6 +129,10 @@ Created symlink /etc/systemd/system/multi-user.target.wants/rc-local.service →
 
 ==================================================================================================================
 
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=download&id=1060xMHPjLDzSWmz8IehlIrI4u_D01fq6" width="950" alt="STEP5">
+</p>
 
 ## (7)
 
